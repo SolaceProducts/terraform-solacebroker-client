@@ -77,7 +77,7 @@ output "acl_profile_client_connect_exceptions" {
 }
 
 output "client_username_attributes" {
-  value = module.testclientusername.msg_vpn_client_username_attributes
+  value = module.testclientusername.client_username_attributes
 }
 
 module "testauthorizationgroup" {

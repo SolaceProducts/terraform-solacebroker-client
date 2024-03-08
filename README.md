@@ -20,7 +20,7 @@ Specific use case details are provided in the [Examples](#examples).
 
 ### Optional
 
-* `password` - If using a client username to identify the client and configured basic authentication with internal database for the Message VPN, this variable provisions a password for authentication purposes.
+* `password` - If using a client username to identify the client and configured basic authentication with internal database for the Message VPN, this variable provisions a password for authentication.
 * `acl_profile_publish_topic_exceptions`, `acl_profile_subscribe_share_name_exceptions`, `acl_profile_subscribe_topic_exceptions`, `acl_profile_client_connect_exceptions` - A set of exceptions that may be added to the ACL profile, to support specific needs of the client.
 * `client_username_attributes` - A set of attributes that may be defined in case of using a client username.
 
@@ -71,7 +71,7 @@ The following table shows the resources created for each `client_identifier_type
 
 Refer to the following configuration examples:
 
-- [Client username](examples/client-username)
+- [Client username](examples/basic-client-username)
 - [Client username attributes](examples/client-username-attributes)
 - [Authorization group](examples/authorization-group)
 - [ACL profile exeptions](examples/acl-profile-exceptions)

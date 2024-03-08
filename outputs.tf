@@ -46,7 +46,7 @@ output "acl_profile_client_connect_exceptions" {
   description = "A Client Connect Exception is an exception to the default action to take when a client using the ACL Profile connects to the Message VPN. Exceptions must be expressed as an IP address/netmask in CIDR form"
 }
 
-output "msg_vpn_client_username_attributes" {
+output "client_username_attributes" {
   value       = try(solacebroker_msg_vpn_client_username_attribute.main, null)
   description = "A ClientUsername Attribute is a key+value pair that can be used to locate a client username, for example when using client certificate mapping"
 }

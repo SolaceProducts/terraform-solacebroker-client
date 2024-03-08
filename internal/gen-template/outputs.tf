@@ -26,7 +26,7 @@ output "acl_profile_client_connect_exceptions" {
   value = try(solacebroker_msg_vpn_acl_profile_client_connect_exception.main, null)
 }
 
-output "msg_vpn_client_username_attributes" {
+output "client_username_attributes" {
   value = try(solacebroker_msg_vpn_client_username_attribute.main, null)
 }
 
