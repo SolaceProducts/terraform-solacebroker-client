@@ -21,17 +21,17 @@ provider "solacebroker" {
 module "testclient" {
   source = "../.."
 
-  msg_vpn_name             = "default"
-  client_identifier_type   = "client_username"
-  client_identifier_name              = "myclient"
-  client_profile_name      = "default"
-  acl_profile_name         = "default"
+  msg_vpn_name           = "default"
+  client_identifier_type = "client_username"
+  client_identifier_name = "myclient"
+  client_profile_name    = "default"
+  acl_profile_name       = "default"
 
   // Optional attributes example. One of the main use cases is client certificates authentication, no password is set here
-  client_username_attributes = [ 
+  client_username_attributes = [
     {
-    attribute_name  = "ou"
-    attribute_value = "Unit1"
+      attribute_name  = "ou"
+      attribute_value = "Unit1"
     }
   ]
 
@@ -40,7 +40,7 @@ module "testclient" {
 }
 
 output "client_username" {
-  value = module.testclient.client_username
+  value     = module.testclient.client_username
   sensitive = true
 }
 
