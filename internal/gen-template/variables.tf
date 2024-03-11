@@ -16,7 +16,7 @@ variable "client_identifier_type" {
   }
 }
 
-variable "client_name" {
+variable "client_identifier_name" {
   description = "The name of the client identifier"
   type        = string
 }

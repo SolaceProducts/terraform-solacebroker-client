@@ -4,7 +4,7 @@ Terraform module to provision a client identifier for [authorization](https://do
 
 The identifier may be one of:
 * [Client username](https://docs.solace.com/Security/Configuring-Client-Usernames.htm); or
-* Authorization group (when using [OAuth](https://docs.solace.com/Security/Client-Authorization-Overview.htm#Authoriz2) or [LDAP](https://docs.solace.com/Security/Client-Authorization-Overview.htm#LDAP-Groups))
+* Authorization group (used for [OAuth](https://docs.solace.com/Security/Client-Authorization-Overview.htm#Authoriz2) or [LDAP](https://docs.solace.com/Security/Client-Authorization-Overview.htm#LDAP-Groups))
 
 Specific use case details are provided in the [Examples](#examples).
 
@@ -12,16 +12,16 @@ Specific use case details are provided in the [Examples](#examples).
 
 ### Required
 
-* `msg_vpn_name` - REST delivery points are specific to a Message VPN on the broker.
-* `client_identifier_type` - One of `client_username` or `authorization_group`.
-* `client_name` - The name of the client identifier.
-* `acl_profile_name` - The ACL profile to be used for authorization of the client.
-* `client_profile_name` - The client profile to be used for authorization of the client.
+* `msg_vpn_name` - REST delivery points are specific to a Message VPN on the broker
+* `client_identifier_type` - One of `client_username` or `authorization_group`
+* `client_identifier_name` - The name of the client identifier
+* `acl_profile_name` - The ACL profile to be assigned for authorization
+* `client_profile_name` - The client profile to be assigned for authorization
 
 ### Optional
 
 * `password` - If using a client username to identify the client and configured basic authentication with internal database for the Message VPN, this variable provisions a password for authentication.
-* `acl_profile_publish_topic_exceptions`, `acl_profile_subscribe_share_name_exceptions`, `acl_profile_subscribe_topic_exceptions`, `acl_profile_client_connect_exceptions` - A set of exceptions that may be added to the ACL profile, to support specific needs of the client.
+* `acl_profile_publish_topic_exceptions`, `acl_profile_subscribe_share_name_exceptions`, `acl_profile_subscribe_topic_exceptions`, `acl_profile_client_connect_exceptions` - Optional exceptions that may be added to modify the assigned ACL profile, to support specific needs of the client.
 * `client_username_attributes` - A set of attributes that may be defined in case of using a client username.
 
 Additional optional module variables names are the same as the underlying resource attributes. The recommended approach to determine variable name mappings is to look up the resource's documentation for matching attribute names:
@@ -38,7 +38,7 @@ Additional optional module variables names are the same as the underlying resour
 
 Most optional variables' default value is `null`, meaning that if not provided then the resource default value will be provisioned on the broker.
 
--> The module default for the `enabled` optional variable is `true`, which differ from the resource attribute default.
+-> The module default for the `enabled` optional variable is `true`, which differs from the resource attribute default.
 
 ## Module outputs
 
@@ -78,7 +78,7 @@ Refer to the following configuration examples:
 
 ## Module use recommendations
 
-This module is expected to be used primarily by application teams. It supports provisioning a client username or an authorization group required by a specific application. It may be forked and adjusted with private defaults.
+This module is expected to be used primarily by application teams. It supports provisioning a client username or an authorization group with possible adjustments, required by a specific application. It may be forked and adjusted with private defaults.
 
 ## Resources
 

@@ -23,7 +23,7 @@ module "testauthgroup" {
 
   msg_vpn_name             = "default"
   client_identifier_type   = "authorization_group"
-  client_name              = "myauthgroup"
+  client_identifier_name              = "myauthgroup"
   client_profile_name      = "default"
   acl_profile_name         = "default"
 

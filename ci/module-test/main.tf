@@ -8,7 +8,7 @@ module "testclientusername" {
   source = "../.."
 
   msg_vpn_name             = "default"
-  client_name              = "myclient"
+  client_identifier_name              = "myclient"
   client_identifier_type   = "client_username"
   client_profile_name      = "default"
   acl_profile_name         = "default"
@@ -85,7 +85,7 @@ module "testauthorizationgroup" {
   source = "../../internal/gen-template"
 
   msg_vpn_name             = "default"
-  client_name              = "myauthorizationgroup"
+  client_identifier_name              = "myauthorizationgroup"
   client_identifier_type   = "authorization_group"
   client_profile_name      = "default"
   acl_profile_name         = "default"

@@ -23,7 +23,7 @@ resource "solacebroker_msg_vpn_client_username" "main" {
   count = var.client_identifier_type == "client_username" ? 1 : 0
 
   msg_vpn_name        = var.msg_vpn_name
-  client_username     = var.client_name
+  client_username     = var.client_identifier_name
   client_profile_name = var.client_profile_name
   acl_profile_name    = var.acl_profile_name
   enabled             = var.enabled
@@ -37,7 +37,7 @@ resource "solacebroker_msg_vpn_authorization_group" "main" {
   count = var.client_identifier_type == "authorization_group" ? 1 : 0
 
   msg_vpn_name             = var.msg_vpn_name
-  authorization_group_name = var.client_name
+  authorization_group_name = var.client_identifier_name
   client_profile_name      = var.client_profile_name
   acl_profile_name         = var.acl_profile_name
   enabled                  = var.enabled
