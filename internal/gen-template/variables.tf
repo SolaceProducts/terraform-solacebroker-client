@@ -44,8 +44,8 @@ variable "enabled" {
 variable "acl_profile_publish_topic_exceptions" {
   description = "A set of exceptions to the default action to take when a client using the ACL Profile publishes to a topic in the Message VPN"
   type = set(object({
-    publish_topic_exception  = string
-    publish_topic_exception_syntax  = string
+    publish_topic_exception        = string
+    publish_topic_exception_syntax = string
   }))
   default = []
 }
@@ -53,8 +53,8 @@ variable "acl_profile_publish_topic_exceptions" {
 variable "acl_profile_subscribe_share_name_exceptions" {
   description = "A set of exceptions to the default action to take when a client using the ACL Profile subscribes to a share-name subscription in the Message VPN"
   type = set(object({
-    subscribe_share_name_exception  = string
-    subscribe_share_name_exception_syntax  = optional(string)
+    subscribe_share_name_exception        = string
+    subscribe_share_name_exception_syntax = optional(string)
   }))
   default = []
 }
@@ -62,8 +62,8 @@ variable "acl_profile_subscribe_share_name_exceptions" {
 variable "acl_profile_subscribe_topic_exceptions" {
   description = "A set of exceptions to the default action to take when a client using the ACL Profile subscribes to a topic in the Message VPN"
   type = set(object({
-    subscribe_topic_exception  = string
-    subscribe_topic_exception_syntax  = optional(string)
+    subscribe_topic_exception        = string
+    subscribe_topic_exception_syntax = optional(string)
   }))
   default = []
 }

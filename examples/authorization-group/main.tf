@@ -21,18 +21,18 @@ provider "solacebroker" {
 module "testauthgroup" {
   source = "../.."
 
-  msg_vpn_name             = "default"
-  client_identifier_type   = "authorization_group"
-  client_identifier_name              = "myauthgroup"
-  client_profile_name      = "default"
-  acl_profile_name         = "default"
+  msg_vpn_name           = "default"
+  client_identifier_type = "authorization_group"
+  client_identifier_name = "myauthgroup"
+  client_profile_name    = "default"
+  acl_profile_name       = "default"
 
   // No need to set enabled, it defaults to true
   // enabled = true
 }
 
 output "authorization_group" {
-  value = module.testauthgroup.authorization_group
+  value     = module.testauthgroup.authorization_group
   sensitive = true
 }
 

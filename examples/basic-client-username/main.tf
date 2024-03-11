@@ -21,11 +21,11 @@ provider "solacebroker" {
 module "testclient" {
   source = "../.."
 
-  msg_vpn_name             = "default"
-  client_identifier_type   = "client_username"
-  client_identifier_name   = "myclient"
-  client_profile_name      = "default"
-  acl_profile_name         = "default"
+  msg_vpn_name           = "default"
+  client_identifier_type = "client_username"
+  client_identifier_name = "myclient"
+  client_profile_name    = "default"
+  acl_profile_name       = "default"
 
   // Configuring a password for the client_username
   password = var.password
@@ -35,7 +35,7 @@ module "testclient" {
 }
 
 output "client_username" {
-  value = module.testclient.client_username
+  value     = module.testclient.client_username
   sensitive = true
 }
 

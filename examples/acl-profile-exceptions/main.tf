@@ -21,22 +21,22 @@ provider "solacebroker" {
 module "testclient" {
   source = "../.."
 
-  msg_vpn_name             = "default"
-  client_identifier_type   = "client_username"
-  client_identifier_name              = "myclient"
-  client_profile_name      = "default"
-  acl_profile_name         = "default"
+  msg_vpn_name           = "default"
+  client_identifier_type = "client_username"
+  client_identifier_name = "myclient"
+  client_profile_name    = "default"
+  acl_profile_name       = "default"
 
   // The "default" ACL profile, used in the example, default actions are "allow", exceptions are "deny"
-  
+
   // example of multiple publish topic exceptions
   acl_profile_publish_topic_exceptions = [
     {
-      publish_topic_exception = "a/b/c* d/e/f",
+      publish_topic_exception        = "a/b/c* d/e/f",
       publish_topic_exception_syntax = "smf"
     },
     {
-      publish_topic_exception = "g/h/i",
+      publish_topic_exception        = "g/h/i",
       publish_topic_exception_syntax = "mqtt"
     }
   ]
@@ -44,7 +44,7 @@ module "testclient" {
   // example subscribe topic exception
   acl_profile_subscribe_topic_exceptions = [
     {
-      subscribe_topic_exception = "j/k/l",
+      subscribe_topic_exception        = "j/k/l",
       subscribe_topic_exception_syntax = "smf"
     }
   ]
@@ -52,20 +52,20 @@ module "testclient" {
   // example subscribe share name exception
   acl_profile_subscribe_share_name_exceptions = [
     {
-      subscribe_share_name_exception = "share-test1",
+      subscribe_share_name_exception        = "share-test1",
       subscribe_share_name_exception_syntax = "smf"
     }
   ]
 
   // example client connect exceptions
-  acl_profile_client_connect_exceptions = [ "192.0.2.0/24", "2001:db8::/32" ]
+  acl_profile_client_connect_exceptions = ["192.0.2.0/24", "2001:db8::/32"]
 
   // No need to set enabled, it defaults to true
   // enabled = true
 }
 
 output "client_username" {
-  value = module.testclient.client_username
+  value     = module.testclient.client_username
   sensitive = true
 }
 
