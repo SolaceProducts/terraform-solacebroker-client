@@ -13,5 +13,5 @@ terraform plan $2
 terraform apply -auto-approve $2
 terraform plan $2 | grep "No changes"
 sleep 1
-terraform destroy -auto-approve
+terraform destroy -auto-approve $2
 popd
