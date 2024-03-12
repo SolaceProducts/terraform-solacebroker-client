@@ -21,23 +21,23 @@ provider "solacebroker" {
 module "testclient" {
   source = "../.."
 
-  msg_vpn_name             = "default"
-  client_identifier_type   = "client_username"
-  client_identifier_name   = "myclient"
-  client_profile_name      = "default"
-  acl_profile_name         = "default"
+  msg_vpn_name           = "default"
+  client_identifier_type = "client_username"
+  client_identifier_name = "myclient"
+  client_profile_name    = "default"
+  acl_profile_name       = "default"
 
   // The "default" ACL profile, used in the example, has default actions "allow", so exceptions are "deny"
 
   // example of multiple publish topic exceptions
   acl_profile_publish_topic_exceptions = [
     {
-      publish_topic_exception = "a/b/c*",
+      publish_topic_exception        = "a/b/c*",
       publish_topic_exception_syntax = "smf"
     },
     {
       // example of using substitution variable - no need to escape the $ character here
-      publish_topic_exception = "g/$client-username",
+      publish_topic_exception        = "g/$client-username",
       publish_topic_exception_syntax = "smf"
     }
   ]
