@@ -24,7 +24,7 @@ Also note that topic exceptions may use [substitution variables](https://docs.so
 
 ### Optional Inputs
 
-* `acl_profile_publish_topic_exceptions`, `acl_profile_subscribe_share_name_exceptions`, `acl_profile_subscribe_topic_exceptions`, `acl_profile_client_connect_exceptions` - examples show how to define them in a list form.
+* `acl_profile_publish_topic_exceptions`, `acl_profile_subscribe_topic_exceptions`, `acl_profile_subscribe_share_name_exceptions`, `acl_profile_client_connect_exceptions` - examples show how to define them in a list form.
 
 Optional module input variables have the same name as the attributes of the underlying provider resource. If omitted then the default for the related resource attribute will be configured on the broker. For attributes and defaults, refer to the [documentation of "solacebroker_msg_vpn_client_username"](https://registry.terraform.io/providers/SolaceProducts/solacebroker/latest/docs/resources/msg_vpn_client_username#optional).
 
@@ -32,13 +32,17 @@ The module default for the `enabled` variable is true, which enables both the RD
 
 ### Output
 
-The module `client_username` output refers to the created client username.
+The module `client_username` output refers to the created client username and the exceptions outputs provide the list the created exceptions.
 
 ## Created resources
 
 This example will create following resources:
 
 * `solacebroker_msg_vpn_client_username`
+* `solacebroker_msg_vpn_acl_profile_publish_topic_exception`
+* `solacebroker_msg_vpn_acl_profile_subscribe_topic_exception`
+* `solacebroker_msg_vpn_acl_profile_subscribe_share_name_exception`
+* `solacebroker_msg_vpn_acl_profile_client_connect_exception`
 
 ## Running the Example
 

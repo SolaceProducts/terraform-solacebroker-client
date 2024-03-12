@@ -38,15 +38,6 @@ resource "solacebroker_msg_vpn_acl_profile_publish_topic_exception" "main" {
   publish_topic_exception_syntax = local.acl_profile_publish_topic_exceptions_list[count.index].publish_topic_exception_syntax
 }
 
-resource "solacebroker_msg_vpn_acl_profile_subscribe_share_name_exception" "main" {
-  count = length(local.acl_profile_subscribe_share_name_exceptions_list)
-
-  msg_vpn_name                          = var.msg_vpn_name
-  acl_profile_name                      = var.acl_profile_name
-  subscribe_share_name_exception        = local.acl_profile_subscribe_share_name_exceptions_list[count.index].subscribe_share_name_exception
-  subscribe_share_name_exception_syntax = local.acl_profile_subscribe_share_name_exceptions_list[count.index].subscribe_share_name_exception_syntax
-}
-
 resource "solacebroker_msg_vpn_acl_profile_subscribe_topic_exception" "main" {
   count = length(local.acl_profile_subscribe_topic_exceptions_list)
 
@@ -54,6 +45,15 @@ resource "solacebroker_msg_vpn_acl_profile_subscribe_topic_exception" "main" {
   acl_profile_name                 = var.acl_profile_name
   subscribe_topic_exception        = local.acl_profile_subscribe_topic_exceptions_list[count.index].subscribe_topic_exception
   subscribe_topic_exception_syntax = local.acl_profile_subscribe_topic_exceptions_list[count.index].subscribe_topic_exception_syntax
+}
+
+resource "solacebroker_msg_vpn_acl_profile_subscribe_share_name_exception" "main" {
+  count = length(local.acl_profile_subscribe_share_name_exceptions_list)
+
+  msg_vpn_name                          = var.msg_vpn_name
+  acl_profile_name                      = var.acl_profile_name
+  subscribe_share_name_exception        = local.acl_profile_subscribe_share_name_exceptions_list[count.index].subscribe_share_name_exception
+  subscribe_share_name_exception_syntax = local.acl_profile_subscribe_share_name_exceptions_list[count.index].subscribe_share_name_exception_syntax
 }
 
 resource "solacebroker_msg_vpn_acl_profile_client_connect_exception" "main" {
