@@ -1,8 +1,16 @@
-# Client Username Configuration Example
+# ACL Profile Exceptions Configuration Example
 
-Configuration in this directory creates a [client username](https://docs.solace.com/Admin/Broker-Manager/broker-manager-create-client-username.htm) on the PubSub+ event broker, leveraging the Client Terraform module.
+This directory demonstrates configuration of a client username with [ACL profile exceptions](https://docs.solace.com/Security/Managing-Access-Control-Lists.htm) on the PubSub+ event broker, leveraging the Client Terraform module.
 
-The example shows setting the sensitive `password` variable with a `.tfvars` file, as described in the [Protect sensitive input variables](https://developer.hashicorp.com/terraform/tutorials/configuration-language/sensitive-variables#set-values-with-a-tfvars-file) Terraform tutorial.
+One set of use cases is if the assigned ACL profile is restrictive (the default value is "disallow") and individual permissions are added as exceptions. Other cases need individual exceptions to a permissive profile. Both serve the configuration of specific requirements of the client being provisioned.
+
+The following ACL profile exceptions are supported:
+* Publish topic exception
+* Subscribe topic exception
+* Subscribe share name exception
+* Client connect exception
+
+Also note that topic exceptions may use [substitution variables](https://docs.solace.com/Security/Granting-Clients-Access.htm#Using), which will also be demonstrated.
 
 ## Module Configuration in the Example
 
@@ -12,11 +20,11 @@ The example shows setting the sensitive `password` variable with a `.tfvars` fil
 * `client_identifier_type` - set to `client_username`
 * `client_identifier_name` - set to `myclient` in the example.
 * `client_profile_name` - `default`, in the example
-* `acl_profile_name` - `default`, in the example
+* `acl_profile_name` - `default`, in the example. The "default" ACL profile's default actions are "allow", so all exceptions defined will be denied.
 
 ### Optional Inputs
 
-* `password` - this example demonstrates when the client username is also used for authentication purposes if basic authentication with internal database has been configured for the Message VPN (this is the case for the `default` VPN). In this case a password needs to be specified, which is shown in the example.
+* `acl_profile_publish_topic_exceptions`, `acl_profile_subscribe_topic_exceptions`, `acl_profile_subscribe_share_name_exceptions`, `acl_profile_client_connect_exceptions` - examples show how to define them in a list form.
 
 Optional module input variables have the same name as the attributes of the underlying provider resource. If omitted then the default for the related resource attribute will be configured on the broker. For attributes and defaults, refer to the [documentation of "solacebroker_msg_vpn_client_username"](https://registry.terraform.io/providers/SolaceProducts/solacebroker/latest/docs/resources/msg_vpn_client_username#optional).
 
@@ -24,13 +32,17 @@ The module default for the `enabled` variable is true, which enables both the RD
 
 ### Output
 
-The module `client_username` output refers to the created client username.
+The module `client_username` output refers to the created client username and the exceptions outputs provide the list the created exceptions.
 
 ## Created resources
 
 This example will create following resources:
 
 * `solacebroker_msg_vpn_client_username`
+* `solacebroker_msg_vpn_acl_profile_publish_topic_exception`
+* `solacebroker_msg_vpn_acl_profile_subscribe_topic_exception`
+* `solacebroker_msg_vpn_acl_profile_subscribe_share_name_exception`
+* `solacebroker_msg_vpn_acl_profile_client_connect_exception`
 
 ## Running the Example
 
@@ -44,7 +56,7 @@ The sample is available from the module GitHub repo:
 
 ```bash
 git clone https://github.com/SolaceProducts/terraform-solacebroker-rest-delivery.git
-cd examples/basic-client-username
+cd examples/acl-profile-exceptions
 ```
 
 ### Adjust Provider Configuration
@@ -59,8 +71,8 @@ Execute from this folder:
 
 ```bash
 terraform init
-terraform plan -var-file="secret.tfvars"
-terraform apply -var-file="secret.tfvars"
+terraform plan
+terraform apply
 ```
 
 Run `terraform destroy` to clean up created resources when no longer needed.

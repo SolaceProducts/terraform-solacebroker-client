@@ -1,8 +1,6 @@
-# Client Username Configuration Example
+# Client Username Attributes Configuration Example
 
-Configuration in this directory creates a [client username](https://docs.solace.com/Admin/Broker-Manager/broker-manager-create-client-username.htm) on the PubSub+ event broker, leveraging the Client Terraform module.
-
-The example shows setting the sensitive `password` variable with a `.tfvars` file, as described in the [Protect sensitive input variables](https://developer.hashicorp.com/terraform/tutorials/configuration-language/sensitive-variables#set-values-with-a-tfvars-file) Terraform tutorial.
+This directory demonstrates configuration of a client username with additional [client username attributes](https://docs.solace.com/Security/Configuring-Client-Usernames.htm?Highlight=client%20username%20attributes#Setting) on the PubSub+ event broker, leveraging the Client Terraform module.
 
 ## Module Configuration in the Example
 
@@ -10,13 +8,13 @@ The example shows setting the sensitive `password` variable with a `.tfvars` fil
 
 * `msg_vpn_name` - set to `default` in the example
 * `client_identifier_type` - set to `client_username`
-* `client_identifier_name` - set to `myclient` in the example.
+* `client_identifier_name` - set to `myclientwithattributes` in the example.
 * `client_profile_name` - `default`, in the example
 * `acl_profile_name` - `default`, in the example
 
 ### Optional Inputs
 
-* `password` - this example demonstrates when the client username is also used for authentication purposes if basic authentication with internal database has been configured for the Message VPN (this is the case for the `default` VPN). In this case a password needs to be specified, which is shown in the example.
+* `client_username_attributes` - a set of attributes in a list form.
 
 Optional module input variables have the same name as the attributes of the underlying provider resource. If omitted then the default for the related resource attribute will be configured on the broker. For attributes and defaults, refer to the [documentation of "solacebroker_msg_vpn_client_username"](https://registry.terraform.io/providers/SolaceProducts/solacebroker/latest/docs/resources/msg_vpn_client_username#optional).
 
@@ -24,13 +22,14 @@ The module default for the `enabled` variable is true, which enables both the RD
 
 ### Output
 
-The module `client_username` output refers to the created client username.
+The module `client_username` output refers to the created client username and the `attributes` output provides the list of created attributes.
 
 ## Created resources
 
 This example will create following resources:
 
 * `solacebroker_msg_vpn_client_username`
+* `solacebroker_msg_vpn_client_username_attribute`
 
 ## Running the Example
 
@@ -44,7 +43,7 @@ The sample is available from the module GitHub repo:
 
 ```bash
 git clone https://github.com/SolaceProducts/terraform-solacebroker-rest-delivery.git
-cd examples/basic-client-username
+cd examples/client-username-attributes
 ```
 
 ### Adjust Provider Configuration
@@ -59,8 +58,8 @@ Execute from this folder:
 
 ```bash
 terraform init
-terraform plan -var-file="secret.tfvars"
-terraform apply -var-file="secret.tfvars"
+terraform plan
+terraform apply
 ```
 
 Run `terraform destroy` to clean up created resources when no longer needed.
