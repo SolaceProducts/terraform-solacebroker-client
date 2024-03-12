@@ -1,6 +1,6 @@
 # ACL Profile Exceptions Configuration Example
 
-Configuration in this directory demonstrates configuring [ACL profile exceptions](https://docs.solace.com/Security/Managing-Access-Control-Lists.htm) on the PubSub+ event broker, leveraging the Client Terraform module.
+This directory demonstrates configuration of a client username with [ACL profile exceptions](https://docs.solace.com/Security/Managing-Access-Control-Lists.htm) on the PubSub+ event broker, leveraging the Client Terraform module.
 
 One set of use cases is if the assigned ACL profile is restrictive (the default value is "disallow") and individual permissions are added as exceptions. Other cases need individual exceptions to a permissive profile. Both serve the configuration of specific requirements of the client being provisioned.
 
@@ -56,7 +56,7 @@ The sample is available from the module GitHub repo:
 
 ```bash
 git clone https://github.com/SolaceProducts/terraform-solacebroker-rest-delivery.git
-cd examples/adding-headers
+cd examples/acl-profile-exceptions
 ```
 
 ### Adjust Provider Configuration

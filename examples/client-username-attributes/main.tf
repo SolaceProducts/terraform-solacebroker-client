@@ -23,7 +23,7 @@ module "testclient" {
 
   msg_vpn_name           = "default"
   client_identifier_type = "client_username"
-  client_identifier_name = "myclient"
+  client_identifier_name = "myclientwithattributes"
   client_profile_name    = "default"
   acl_profile_name       = "default"
 

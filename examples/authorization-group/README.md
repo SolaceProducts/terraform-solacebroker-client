@@ -40,7 +40,7 @@ The sample is available from the module GitHub repo:
 
 ```bash
 git clone https://github.com/SolaceProducts/terraform-solacebroker-rest-delivery.git
-cd examples/adding-headers
+cd examples/authorization-group
 ```
 
 ### Adjust Provider Configuration
