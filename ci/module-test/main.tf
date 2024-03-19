@@ -6,6 +6,7 @@ provider "solacebroker" {
 
 module "testclientusername" {
   source = "../.."
+  # version = ""
 
   msg_vpn_name           = "default"
   client_identifier_name = "myclient"
