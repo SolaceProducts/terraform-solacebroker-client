@@ -16,11 +16,11 @@ The example shows setting the sensitive `password` variable with a `.tfvars` fil
 
 ### Optional Inputs
 
-* `password` - this example demonstrates when the client username is also used for authentication purposes if basic authentication with internal database has been configured for the Message VPN (this is the case for the `default` VPN). In this case a password needs to be specified, which is shown in the example.
+* `password` - this example demonstrates when the client username is also used for authentication purposes if basic authentication with internal database has been configured for the Message VPN. In this case a password needs to be specified, which is shown in the example.
 
 Optional module input variables have the same name as the attributes of the underlying provider resource. If omitted then the default for the related resource attribute will be configured on the broker. For attributes and defaults, refer to the [documentation of "solacebroker_msg_vpn_client_username"](https://registry.terraform.io/providers/SolaceProducts/solacebroker/latest/docs/resources/msg_vpn_client_username#optional).
 
-The module default for the `enabled` variable is true, which enables both the RDP and the REST consumer resources.
+The module default for the `enabled` variable is true, which enables the client username.
 
 ### Output
 

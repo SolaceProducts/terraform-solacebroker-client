@@ -12,7 +12,7 @@ Specific use case details are provided in the [Examples](#examples).
 
 ### Required
 
-* `msg_vpn_name` - REST delivery points are specific to a Message VPN on the broker
+* `msg_vpn_name` - client usernames or authorization groups are specific to a Message VPN on the broker
 * `client_identifier_type` - One of `client_username` or `authorization_group`
 * `client_identifier_name` - The name of the client identifier
 * `acl_profile_name` - The ACL profile to be assigned for authorization

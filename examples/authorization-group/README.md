@@ -16,7 +16,7 @@ Configuration in this directory creates an authorization group on the PubSub+ ev
 
 Optional module input variables have the same name as the attributes of the underlying provider resource. If omitted then the default for the related resource attribute will be configured on the broker. For attributes and defaults, refer to the [documentation of "solacebroker_msg_vpn_authorization_group"](https://registry.terraform.io/providers/SolaceProducts/solacebroker/latest/docs/resources/msg_vpn_authorization_group#optional).
 
-The module default for the `enabled` variable is true, which enables both the RDP and the REST consumer resources.
+The module default for the `enabled` variable is true, which enables the authorization group.
 
 ### Output
 
