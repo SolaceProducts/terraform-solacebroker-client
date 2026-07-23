@@ -1,0 +1,25 @@
+version: 3
+
+project:
+  locator: SolaceProducts_terraform-solacebroker-client
+  id: SolaceProducts_terraform-solacebroker-client
+  name: terraform-solacebroker-client
+  teams: []
+  labels:
+    - terraform
+
+vendoredDependencies:
+  forceRescans: false
+  scanMethod: CLILicenseScan
+  licenseScanPathFilters:
+    exclude:
+      - "./.git"
+      - "./.github"
+
+paths:
+  exclude:
+    - ./.git
+    - ./.github
+
+telemetry:
+  scope: full
